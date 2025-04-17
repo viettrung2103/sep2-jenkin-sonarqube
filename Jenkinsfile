@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven3'
+        jdk 'JDK 17'
+    }
 
     environment {
         SONARQUBE_SERVER = 'SonarQubeServer'  // The name of the SonarQube server configured in Jenkins ( in Manage  Jenkin, System)
