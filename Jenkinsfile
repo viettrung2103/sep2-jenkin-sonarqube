@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_SERVER = 'SonarQubeServer'  // The name of the SonarQube server configured in Jenkins
-        SONAR_TOKEN = 'sqa_902ad64d0703370fee676a4b9c578c84cc550199' // Store the token securely
+        SONARQUBE_SERVER = 'SonarQubeServer'  // The name of the SonarQube server configured in Jenkins ( in Manage  Jenkin, System)
+        SONAR_TOKEN = 'sqa_c9f9a81b335821eaaf466b3776db80710fc14226' // Store the token securely
     }
 
     stages {
@@ -22,7 +22,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQubeServer') {
-                    bat """
+                    sh """
                         sonar-scanner ^
                         -Dsonar.projectKey=devops-demo ^
                         -Dsonar.sources=src ^
